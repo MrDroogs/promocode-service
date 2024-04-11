@@ -3,6 +3,7 @@ package com.swifttech.promocodeservice.entity;
 import com.swifttech.promocodeservice.core.base.entity.BaseAuditEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jdk.jfr.Timestamp;
 import lombok.*;
 
 import java.util.Calendar;
@@ -15,6 +16,7 @@ import java.util.Calendar;
 @Entity
 @Table(name = "time_frame")
 public class TimeFrameEntity  extends BaseAuditEntity {
+
     private Calendar startDate;
     private Calendar endDate;
     private int applicableDays;
