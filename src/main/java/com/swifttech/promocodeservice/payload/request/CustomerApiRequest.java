@@ -1,5 +1,8 @@
 package com.swifttech.promocodeservice.payload.request;
 
+import com.swifttech.promocodeservice.enums.KycStatus;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,4 +16,5 @@ import java.util.List;
 @Setter
 public class CustomerApiRequest {
     List<String> customerIdsList;
+
 }

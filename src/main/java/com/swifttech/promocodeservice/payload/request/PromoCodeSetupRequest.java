@@ -1,21 +1,17 @@
 package com.swifttech.promocodeservice.payload.request;
 
-
 import jakarta.persistence.Column;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Calendar;
 import java.util.UUID;
 
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PromoCodeRequest {
-    private UUID id;
+@Builder
+public class PromoCodeSetupRequest {
     private String promoCodeName;
     private String promoCodeDescription;
     private Boolean applicableForTransaction;
@@ -30,4 +26,6 @@ public class PromoCodeRequest {
     private Calendar startTime;
     @Column(columnDefinition = "TIMESTAMP")
     private Calendar endTime;
+
+
 }

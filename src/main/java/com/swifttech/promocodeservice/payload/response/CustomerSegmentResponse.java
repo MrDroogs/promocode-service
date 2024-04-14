@@ -1,4 +1,5 @@
 package com.swifttech.promocodeservice.payload.response;
 
-public class CustomerResponse {
+public class CustomerSegmentResponse {
+
 }
