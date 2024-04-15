@@ -2,6 +2,7 @@ package com.swifttech.promocodeservice.payload.request;
 
 
 import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PromoCodeRequest {
+    @GeneratedValue
     private UUID id;
     private String promoCodeName;
     private String promoCodeDescription;
