@@ -1,5 +1,6 @@
 package com.swifttech.promocodeservice.payload.request;
 
+import com.swifttech.promocodeservice.enums.Type;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,8 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class CountWiseRequest {
-    private String promoCodeType;
-    private BigDecimal promoCodeValue;
-    private int TotalApplicableNumber;
+public class ServiceChargeRequest {
+    private Type type;
+    private BigDecimal value;
 }

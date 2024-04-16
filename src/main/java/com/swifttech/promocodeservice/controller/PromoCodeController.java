@@ -1,12 +1,13 @@
 package com.swifttech.promocodeservice.controller;
 
+import com.swifttech.promocodeservice.entity.PromoCodeEntity;
 import com.swifttech.promocodeservice.payload.request.PromoCodeRequest;
+import com.swifttech.promocodeservice.payload.response.PromoCodeList;
 import com.swifttech.promocodeservice.service.PromoCodeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -16,7 +17,8 @@ public class PromoCodeController {
 
 
     @PostMapping("/create")
-    public void createPromoCode(@RequestBody  PromoCodeRequest promoCodeRequest){
+    public void createPromoCode(@RequestBody PromoCodeRequest promoCodeRequest){
       promoCodeService.createPromoCode(promoCodeRequest);
     }
+
 }

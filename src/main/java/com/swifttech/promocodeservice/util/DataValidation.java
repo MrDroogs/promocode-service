@@ -3,7 +3,6 @@ package com.swifttech.promocodeservice.util;
 import com.swifttech.promocodeservice.core.base.Codes;
 import com.swifttech.promocodeservice.core.exception.RemitException;
 import com.swifttech.promocodeservice.entity.PromoCodeEntity;
-import com.swifttech.promocodeservice.payload.request.PromoCodeRequest;
 import com.swifttech.promocodeservice.repository.AmountRepository;
 import com.swifttech.promocodeservice.repository.CountWiseRepository;
 import com.swifttech.promocodeservice.repository.CustomerRepository;
@@ -28,10 +27,10 @@ public class DataValidation {
     private final Codes codes;
     private static final Logger LOG = LoggerFactory.getLogger(PromoCodeServiceImpl.class);
 
-    public boolean isPromoCodeExists(UUID id, PromoCodeRequest promoCodeRequest) {
+    public boolean isPromoCodeExists(UUID id, PromoCodeEntity promoCodeEntity) {
         try {
             PromoCodeEntity promoCode = promoCodeRepository.findById(id).
-                    orElseThrow(() -> new RemitException(codes.pick("PRM001")));
+                    orElseThrow(() -> new RemitException(codes.pick("PRM002")));
 
             return true;
 

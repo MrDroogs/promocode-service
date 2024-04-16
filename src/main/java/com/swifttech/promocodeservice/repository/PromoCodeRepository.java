@@ -11,6 +11,5 @@ import java.util.UUID;
 public interface PromoCodeRepository extends JpaRepository<PromoCodeEntity, UUID> {
 
 
-
-
+    PromoCodeEntity findByPromoCodeName(String promoCodeName);
 }

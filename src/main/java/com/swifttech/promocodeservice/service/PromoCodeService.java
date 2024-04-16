@@ -1,5 +1,7 @@
 package com.swifttech.promocodeservice.service;
 
+import com.swifttech.promocodeservice.entity.PromoCodeEntity;
+import com.swifttech.promocodeservice.payload.request.PaginationRequest;
 import com.swifttech.promocodeservice.payload.request.PromoCodeRequest;
 import com.swifttech.promocodeservice.payload.response.PromoCodeList;
 
@@ -10,8 +12,9 @@ public interface PromoCodeService {
 
     void createPromoCode(PromoCodeRequest promoCodeRequest);
 
-    List<PromoCodeList> promoCodeList(PromoCodeRequest promoCodeRequest);
-    void updatePromoCode(UUID id, PromoCodeRequest promoCodeRequest);
 
-//    public boolean isPromoCodeExpired(PromoCodeEntity promoCode);
+//    List<PromoCodeList> promoCodeList(PaginationRequest paginationRequest);
+//    void updatePromoCode(UUID id, PromoCodeRequest promoCodeRequest);
+
+
 }

@@ -5,6 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -13,5 +16,7 @@ import lombok.*;
 @Builder
 @Table(name = "count_wise")
 public class CountWiseEntity extends BaseAuditEntity {
+    private String promoCodeType;
+    private BigDecimal promoCodeValue;
     private int TotalApplicableNumber;
 }

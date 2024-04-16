@@ -6,7 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -18,27 +20,18 @@ import java.util.UUID;
 @Builder
 @Table(name = "promo_code")
 public class PromoCodeEntity extends BaseAuditEntity {
-    @Column(nullable = false)
+
     private String promoCodeName;
-    @Column(nullable = false)
     private String promoCodeDescription;
-    @Column(nullable = false)
     private Boolean applicableForTransaction;
-    private UUID recievingCountry;
+    private UUID receivingCountry;
     private UUID sendingCountry;
-    @Column(nullable = false)
-    private String currency;
-    @Column(nullable = false)
+    private UUID currency;
     private Calendar startDate;
-    @Column(nullable = false)
     private Calendar endDate;
-    @Column(nullable = false)
-    private int applicableDays;
-    @Column(nullable = false)
+    private UUID applicableDays;
     private Boolean specifiedTime;
-    @Column(columnDefinition = "TIMESTAMP",nullable = false)
     private Calendar startTime;
-    @Column(columnDefinition = "TIMESTAMP",nullable = false)
     private Calendar endTime;
 
 }

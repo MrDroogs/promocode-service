@@ -10,13 +10,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
 @Setter
-
 public class AmountWiseRequest {
-    private UUID id;
     @Enumerated(EnumType.STRING)
     private AmountEnum amountEnum;
     private BigDecimal promoCodeValue;
