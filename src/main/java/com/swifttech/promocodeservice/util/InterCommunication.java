@@ -10,7 +10,9 @@ import com.swifttech.promocodeservice.payload.request.CountryApiRequest;
 import com.swifttech.promocodeservice.payload.response.CountryResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatusCode;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -24,10 +26,10 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-
 public class InterCommunication {
     private final WebClient.Builder webClient;
     private final Codes codes;
+
    private  static Mono<? extends Throwable> apply (ClientResponse clientResponse){
        return clientResponse.bodyToMono(String.class)
                .flatMap(body -> {
@@ -40,45 +42,31 @@ public class InterCommunication {
                });
 
    }
-    public CountryResponse getCountry(UUID countryId) {
-        try {
-            log.info("Fetching Country by country id");
-            String uri = UriComponentsBuilder.fromUriString(masterService)
-                    .path("country" + FOLDER_SEPERATOR + countryId.toString())
-                    .build()
-                    .toString();
-
-            return webClient.build()
-                    .get()
-                    .uri(uri)
-                    .retrieve()
-                    .onStatus(HttpStatusCode::isError, InterCommunication::apply)
-                    .bodyToMono(CountryResponse.class)
-                    .block();
-        } catch (Exception e) {
-            log.error("Failed to fetch country by countryId");
-            throw new RemitException(codes.pick("CON001"));
-        }
+    public List<CountryResponse> getCountry(CountryApiRequest countryId) {
+        return webClient.build()
+                .post()
+                .uri("https://uat-gateway.swifttech.com.np/api/v2/master/country/validate")
+                .bodyValue(countryId)
+                .retrieve()
+                .onStatus(HttpStatusCode::isError, InterCommunication::apply)
+                .bodyToFlux(CountryResponse.class)
+                .collectList()
+                .block();
     }
-    public CurrencyResponse getCurrency(UUID currencyId){
-       try {
-           String uri = UriComponentsBuilder.fromUriString(masterService)
-                   .path("country" + FOLDER_SEPERATOR + countryId.toString())
-                   .build()
-                   .toString();
-
-           return webClient.build()
-                   .get()
-                   .uri(uri)
+    public ApiResponse getCurrency(List<UUID> currencyId){
+       return webClient.build()
+                   .post()
+                   .uri("https://uat-gateway.swifttech.com.np/api/v2/master/currency/byIds")
+                    .bodyValue(currencyId)
                    .retrieve()
                    .onStatus(HttpStatusCode::isError, InterCommunication::apply)
-                   .bodyToMono(CountryResponse.class)
+                   .bodyToMono(ApiResponse.class)
                    .block();
-       } catch (Exception e) {
-           log.error("Failed to fetch country by countryId");
-           throw new RemitException(codes.pick("CON001"));
+
        }
-       }
-    }
+
 
 }
+
+
+

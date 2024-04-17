@@ -26,12 +26,13 @@ public class PromoCodeEntity extends BaseAuditEntity {
     private Boolean applicableForTransaction;
     private UUID receivingCountry;
     private UUID sendingCountry;
-    private UUID currency;
     private Calendar startDate;
     private Calendar endDate;
     private UUID applicableDays;
     private Boolean specifiedTime;
     private Calendar startTime;
     private Calendar endTime;
+    private List<UUID> currency;
+
 
 }

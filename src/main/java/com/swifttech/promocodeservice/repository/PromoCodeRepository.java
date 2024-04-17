@@ -9,7 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface PromoCodeRepository extends JpaRepository<PromoCodeEntity, UUID> {
-
-
     PromoCodeEntity findByPromoCodeName(String promoCodeName);
 }

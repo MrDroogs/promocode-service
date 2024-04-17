@@ -18,5 +18,5 @@ import java.util.List;
 @Table(name = "service_charge")
 public class ServiceChargeEntity extends BaseAuditEntity {
     private Type type;
-    private BigDecimal value;
+//    private BigDecimal value;
 }

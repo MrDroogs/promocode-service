@@ -3,6 +3,7 @@ package com.swifttech.promocodeservice.util;
 import com.swifttech.promocodeservice.core.base.Codes;
 import com.swifttech.promocodeservice.core.exception.RemitException;
 import com.swifttech.promocodeservice.entity.PromoCodeEntity;
+import com.swifttech.promocodeservice.payload.request.PromoCodeRequest;
 import com.swifttech.promocodeservice.repository.AmountRepository;
 import com.swifttech.promocodeservice.repository.CountWiseRepository;
 import com.swifttech.promocodeservice.repository.CustomerRepository;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -26,19 +28,17 @@ public class DataValidation {
     private final AmountRepository amountRepository;
     private final Codes codes;
     private static final Logger LOG = LoggerFactory.getLogger(PromoCodeServiceImpl.class);
+    public boolean isPromoCodeExists(PromoCodeRequest promoCodeRequest, PromoCodeEntity promoCodeEntity) throws RemitException {
+            Optional<PromoCodeEntity> promoCodeOptional = Optional.ofNullable(promoCodeRepository.findByPromoCodeName(promoCodeEntity.getPromoCodeName()));
 
-    public boolean isPromoCodeExists(UUID id, PromoCodeEntity promoCodeEntity) {
-        try {
-            PromoCodeEntity promoCode = promoCodeRepository.findById(id).
-                    orElseThrow(() -> new RemitException(codes.pick("PRM002")));
-
-            return true;
-
-        } catch (RemitException e) {
-            return false;
-
-        }
+            if (promoCodeOptional.isPresent()) {
+                return true;
+            } else {
+                throw new RemitException(codes.pick("PRM002"));
+            }
     }
 
-
 }
+
+
+

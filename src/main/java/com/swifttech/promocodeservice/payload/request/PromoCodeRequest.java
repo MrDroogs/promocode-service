@@ -2,6 +2,7 @@ package com.swifttech.promocodeservice.payload.request;
 
 
 import jakarta.persistence.Column;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,16 +12,17 @@ import java.util.UUID;
 
 @Setter
 @Getter
+@Builder
 public class PromoCodeRequest {
     private String promoCodeName;
     private String promoCodeDescription;
     private Boolean applicableForTransaction;
     private UUID receivingCountry;
     private UUID sendingCountry;
-    private  UUID Currency;
+    private  List<UUID> Currency;
     private Calendar startDate;
     private Calendar endDate;
-    private UUID applicableDays;
+//    private UUID applicableDays;
     private Boolean specifiedTime;
     @Column(columnDefinition = "TIMESTAMP")
     private Calendar startTime;

@@ -1,14 +1,15 @@
 package com.swifttech.promocodeservice.payload.request;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 import java.util.UUID;
 
 @Getter
 @Setter
-
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class CountryApiRequest {
-    private UUID countryId;
+    private List<UUID> countryIds;
 }
