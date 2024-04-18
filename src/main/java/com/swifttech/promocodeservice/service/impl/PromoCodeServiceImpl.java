@@ -6,11 +6,9 @@ import com.swifttech.promocodeservice.core.exception.RemitException;
 import com.swifttech.promocodeservice.core.model.ApiResponse;
 import com.swifttech.promocodeservice.entity.PromoCodeEntity;
 import com.swifttech.promocodeservice.mapper.PromoCodeMapper;
-import com.swifttech.promocodeservice.payload.jsonB.CountryRecord;
 import com.swifttech.promocodeservice.payload.jsonB.CurrencyRecord;
 import com.swifttech.promocodeservice.payload.request.CountryApiRequest;
 import com.swifttech.promocodeservice.payload.request.PromoCodeRequest;
-import com.swifttech.promocodeservice.payload.response.CountryResponse;
 import com.swifttech.promocodeservice.repository.CustomerRepository;
 import com.swifttech.promocodeservice.repository.PromoCodeRepository;
 import com.swifttech.promocodeservice.service.PromoCodeService;
@@ -23,7 +21,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -46,11 +43,8 @@ public class PromoCodeServiceImpl implements PromoCodeService {
         List<UUID> countryIds = new ArrayList<>();
         countryIds.add(promoCodeRequest.getSendingCountry());
         countryIds.add(promoCodeRequest.getReceivingCountry());
-        CountryApiRequest countryApiRequest = CountryApiRequest.builder()
-                .countryIds(countryIds)
-                .build();
-        log.info("COUNTRY REQUEST DATA {}", new Gson().toJson(countryApiRequest));
-        interCommunication.getCountry(countryApiRequest);
+        log.info("COUNTRY REQUEST DATA {}", new Gson().toJson(countryIds));
+        interCommunication.getCountry(countryIds);
         ApiResponse currencyResponse = interCommunication.getCurrency(promoCodeRequest.getCurrency());
         if (currencyResponse.isSuccess()) {
             Object currencyResponseData = currencyResponse.getData();
@@ -70,7 +64,20 @@ public class PromoCodeServiceImpl implements PromoCodeService {
         promoCode = PromoCodeMapper.Instance.toEntity(promoCodeRequest);
         promoCodeRepository.save(promoCode);
     }
+
+//    @Override
+//    public void updatePromoCode(PromoCodeRequest promoCodeRequest) {
+//     PromoCodeEntity promoCode = promoCodeRepository.findByPromoCodeName(promoCodeRequest.getPromoCodeName());
+//
+//    }
+
+
+
+
+
 }
+
+
 
 
 

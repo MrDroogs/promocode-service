@@ -42,10 +42,10 @@ public class InterCommunication {
                });
 
    }
-    public List<CountryResponse> getCountry(CountryApiRequest countryId) {
+    public List<CountryResponse> getCountry(List<UUID> countryId) {
         return webClient.build()
                 .post()
-                .uri("https://uat-gateway.swifttech.com.np/api/v2/master/country/validate")
+                .uri("https://uat-gateway.swifttech.com.np/api/v2/master/country/byId")
                 .bodyValue(countryId)
                 .retrieve()
                 .onStatus(HttpStatusCode::isError, InterCommunication::apply)
@@ -64,6 +64,18 @@ public class InterCommunication {
                    .block();
 
        }
+
+    public ApiResponse getApplicableDays(List<UUID> applicableDays) {
+       return webClient.build()
+               .post()
+               .uri("")
+               .bodyValue(applicableDays)
+               .retrieve()
+               .onStatus(HttpStatusCode::isError,InterCommunication::apply)
+               .bodyToMono(ApiResponse.class)
+               .block();
+    }
+
 
 
 }

@@ -4,6 +4,7 @@ package com.swifttech.promocodeservice.payload.response;
 import com.swifttech.promocodeservice.enums.Status;
 
 import java.io.Serializable;
+
 import java.util.List;
 import java.util.UUID;
 

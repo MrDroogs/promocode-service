@@ -25,6 +25,7 @@ public class AmountWiseEntity extends BaseAuditEntity {
     private BigDecimal promoCodeValue;
     private String promoCodeType;
     private Type type;
+    private BigDecimal value;
     private BigDecimal startRange;
     private BigDecimal endRange;
     private BigDecimal maxAmount;

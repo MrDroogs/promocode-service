@@ -10,7 +10,7 @@ import java.util.List;
 public class CustomerSegmentRequest {
     private String kycStatus;
     private Gender gender;
-    private List<String> Nationality;
-    private String Age;
+    private List<String> nationality;
+    private String age;
     private String visaType;
 }

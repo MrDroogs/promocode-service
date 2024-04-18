@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 import lombok.*;
 
 import java.util.List;
-import java.util.UUID;
+
 
 @Getter
 @Setter
@@ -19,7 +19,7 @@ import java.util.UUID;
 public class CustomerSegmentEntity extends BaseAuditEntity {
   private String kycStatus;
   private Gender gender;
-  private List<String> Nationality;
-  private String Age;
+  private List<String> nationality;
+  private String age;
   private String visaType;
 }
