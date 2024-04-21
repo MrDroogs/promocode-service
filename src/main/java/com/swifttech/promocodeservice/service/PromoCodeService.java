@@ -12,12 +12,10 @@ public interface PromoCodeService {
 
     void createPromoCode(PromoCodeRequest promoCodeRequest);
 
-//    void updatePromoCode(PromoCodeRequest promoCodeRequest);
-//
-//    PromoCodeEntity update(PromoCodeRequest promoCodeRequest);
+    void updatePromoCode(UUID id,PromoCodeRequest promoCodeRequest);
+
+    List<PromoCodeList> promoCodeList(PaginationRequest pagination);
 
 
-
-
-
+    void deletePromoCode(UUID id);
 }

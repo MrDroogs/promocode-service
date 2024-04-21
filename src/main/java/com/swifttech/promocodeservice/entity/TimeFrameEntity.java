@@ -1,6 +1,8 @@
 package com.swifttech.promocodeservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.swifttech.promocodeservice.core.base.entity.BaseAuditEntity;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;
 
@@ -13,12 +15,13 @@ import java.util.UUID;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Builder
+@Entity
 @Table(name = "time_frame")
-public class TimeFrameEntity {
+public class TimeFrameEntity extends BaseAuditEntity {
     private Calendar startDate;
     private Calendar endDate;
     private UUID applicableDays;
-    private Boolean specifiedTime;
+    private Boolean specificTime;
     private Calendar startTime;
     private Calendar endTime;
     private List<UUID> currency;

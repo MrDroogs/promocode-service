@@ -1,6 +1,7 @@
 package com.swifttech.promocodeservice.entity;
 
 import com.swifttech.promocodeservice.core.base.entity.BaseAuditEntity;
+import com.swifttech.promocodeservice.enums.Status;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

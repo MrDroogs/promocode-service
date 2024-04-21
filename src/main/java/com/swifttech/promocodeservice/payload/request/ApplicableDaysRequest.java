@@ -2,6 +2,7 @@ package com.swifttech.promocodeservice.payload.request;
 
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Setter
@@ -10,5 +11,5 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ApplicableDaysRequest {
-    private UUID applicableDays;
+    private List<UUID> applicableDays;
 }

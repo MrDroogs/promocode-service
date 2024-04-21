@@ -2,6 +2,7 @@ package com.swifttech.promocodeservice.mapper;
 
 import com.swifttech.promocodeservice.entity.PromoCodeEntity;
 import com.swifttech.promocodeservice.payload.request.PromoCodeRequest;
+import com.swifttech.promocodeservice.payload.response.PromoCodeList;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
@@ -16,6 +17,7 @@ public interface PromoCodeMapper {
 
     PromoCodeRequest toRequest(PromoCodeEntity promoCodeEntity);
 
+    PromoCodeList toPromoCodeList(PromoCodeEntity promoCodeEntity);
 
 
 
