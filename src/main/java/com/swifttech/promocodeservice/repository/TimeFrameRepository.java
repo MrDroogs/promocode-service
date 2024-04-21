@@ -5,7 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Calendar;
 import java.util.UUID;
 @Repository
 public interface TimeFrameRepository extends JpaRepository<TimeFrameEntity, UUID>, JpaSpecificationExecutor<TimeFrameEntity> {
+    TimeFrameEntity findByStartDate(Calendar startDate);
 }

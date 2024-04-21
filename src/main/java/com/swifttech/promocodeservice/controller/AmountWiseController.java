@@ -1,9 +1,8 @@
 package com.swifttech.promocodeservice.controller;
 
 import com.swifttech.promocodeservice.payload.request.AmountWiseRequest;
-import com.swifttech.promocodeservice.payload.request.CustomerSegmentRequest;
-import com.swifttech.promocodeservice.service.AmountWiseService;
-import com.swifttech.promocodeservice.service.CustomerSegmentService;
+import com.swifttech.promocodeservice.payload.request.CountWiseRequest;
+import com.swifttech.promocodeservice.service.AmountCountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,10 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/amountWise")
 public class AmountWiseController {
-    private final AmountWiseService amountWiseService;
+    private final AmountCountService amountCountService;
     @PostMapping("/create")
     public void createAmountWise(@RequestBody AmountWiseRequest amountWiseRequest){
-        amountWiseService.createAmountWise(amountWiseRequest);
+        amountCountService.createAmountWise(amountWiseRequest);
+    }
+    @PostMapping("/creatCount")
+    public void createCountWise(@RequestBody CountWiseRequest countWiseRequest){
+        amountCountService.createCountWise(countWiseRequest);
+
     }
 
 }

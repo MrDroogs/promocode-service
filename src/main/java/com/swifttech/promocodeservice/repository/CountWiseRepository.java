@@ -9,4 +9,5 @@ import java.util.UUID;
 @Repository
 public interface CountWiseRepository extends JpaRepository<CountWiseEntity, UUID>{
 
+    CountWiseEntity findByPromoCodeType(String promoCodeType);
 }

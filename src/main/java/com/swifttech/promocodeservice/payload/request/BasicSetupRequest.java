@@ -11,7 +11,7 @@ import java.util.UUID;
 @Setter
 @Getter
 @Builder
-public class PromoCodeRequest {
+public class BasicSetupRequest {
     private String promoCodeName;
     private String promoCodeDescription;
     private Boolean applicableForTransaction;

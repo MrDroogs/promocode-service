@@ -6,5 +6,7 @@ public enum Status {
     UNVERIFIED,
 
     TRUE,
-    FALSE
+    FALSE,
+
+    DELETED
 }

@@ -10,6 +10,7 @@ public interface CustomerSegmentMapper {
     CustomerSegmentMapper Instance = Mappers.getMapper(CustomerSegmentMapper.class);
     CustomerSegmentEntity toEntity(CustomerSegmentRequest customerSegmentRequest);
 
-    CustomerSegmentRequest toRequest(CustomerSegmentEntity customerSegmentEntity);
+//    CustomerSegmentRequest toRequest(CustomerSegmentRequest request,CustomerSegmentEntity customerSegmentEntity);
 
+    CustomerSegmentRequest toRequest(CustomerSegmentEntity customerSegmentEntity);
 }

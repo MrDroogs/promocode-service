@@ -17,7 +17,7 @@ public class TimeFrameRequest {
     @Column(columnDefinition = "TIMESTAMP")
     private Calendar endDate;
     private UUID applicableDays;
-    private Boolean specifiedTime;
+    private Boolean specificTime;
     @Column(columnDefinition = "TIMESTAMP")
     private Calendar startTime;
     @Column(columnDefinition = "TIMESTAMP")
