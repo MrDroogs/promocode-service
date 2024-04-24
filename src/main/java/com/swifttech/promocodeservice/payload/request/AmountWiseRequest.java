@@ -5,10 +5,7 @@ import com.swifttech.promocodeservice.enums.AmountEnum;
 import com.swifttech.promocodeservice.enums.Type;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -16,6 +13,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
+@Builder
 public class AmountWiseRequest {
     @Enumerated(EnumType.STRING)
     private AmountEnum amountEnum;
