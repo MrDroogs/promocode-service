@@ -25,17 +25,17 @@ public class TimeFrameController {
         timeFrameService.createTimeFrame(timeFrameRequest);
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<Response> updateTimeFrame(@PathVariable UUID id, @RequestBody TimeFrameRequest timeFrameRequest) {
-        timeFrameService.updateTimeFrame(id,timeFrameRequest);
-        return ResponseEntity.ok(ServiceResponseBuilder.buildSuccessResponse(null,
-                messageSource.getMessage("message.updatePromoCode.success", null, LocaleContextHolder.getLocale())));
-    }
-    @DeleteMapping("/promocode/{id}")
-    public Mono<ResponseEntity<Response>> deleteTimeFrame(@PathVariable("id") UUID id) {
-        timeFrameService.deleteTimeFramew(id);
-        return Mono.just(ResponseEntity.ok(ServiceResponseBuilder.buildSuccessResponse(
-                messageSource.getMessage("message.service.charge.scheme.deleted.success",
-                        null, LocaleContextHolder.getLocale()))));
-    }
+//    @PutMapping("/update")
+//    public ResponseEntity<Response> updateTimeFrame(@PathVariable UUID id, @RequestBody TimeFrameRequest timeFrameRequest) {
+//        timeFrameService.updateTimeFrame(id,timeFrameRequest);
+//        return ResponseEntity.ok(ServiceResponseBuilder.buildSuccessResponse(null,
+//                messageSource.getMessage("message.updatePromoCode.success", null, LocaleContextHolder.getLocale())));
+//    }
+//    @DeleteMapping("/promocode/{id}")
+//    public Mono<ResponseEntity<Response>> deleteTimeFrame(@PathVariable("id") UUID id) {
+//        timeFrameService.deleteTimeFramew(id);
+//        return Mono.just(ResponseEntity.ok(ServiceResponseBuilder.buildSuccessResponse(
+//                messageSource.getMessage("message.service.charge.scheme.deleted.success",
+//                        null, LocaleContextHolder.getLocale()))));
+//    }
 }

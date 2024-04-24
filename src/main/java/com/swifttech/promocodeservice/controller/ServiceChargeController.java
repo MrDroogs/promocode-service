@@ -24,19 +24,19 @@ public class ServiceChargeController {
     public void createServiceCharge(@RequestBody ServiceChargeRequest serviceChargeRequest){
         serviceChargeService.createServiceCharge(serviceChargeRequest);
     }
-    @PutMapping("/update")
-    public ResponseEntity<Response> updateServiceCharge(@PathVariable UUID id, @RequestBody ServiceChargeRequest serviceChargeRequest) {
-        serviceChargeService.updateServiceCharge(id,serviceChargeRequest);
-        return ResponseEntity.ok(ServiceResponseBuilder.buildSuccessResponse(null,
-                messageSource.getMessage("message.updatePromoCode.success", null, LocaleContextHolder.getLocale())));
-    }
-    @DeleteMapping("/promocode/{id}")
-    public Mono<ResponseEntity<Response>> deleteServiceCharge(@PathVariable("id") UUID id) {
-        serviceChargeService.deleteServiceCharge(id);
-        return Mono.just(ResponseEntity.ok(ServiceResponseBuilder.buildSuccessResponse(
-                messageSource.getMessage("message.service.charge.scheme.deleted.success",
-                        null, LocaleContextHolder.getLocale()))));
-    }
+//    @PutMapping("/update")
+//    public ResponseEntity<Response> updateServiceCharge(@PathVariable UUID id, @RequestBody ServiceChargeRequest serviceChargeRequest) {
+//        serviceChargeService.updateServiceCharge(id,serviceChargeRequest);
+//        return ResponseEntity.ok(ServiceResponseBuilder.buildSuccessResponse(null,
+//                messageSource.getMessage("message.updatePromoCode.success", null, LocaleContextHolder.getLocale())));
+//    }
+//    @DeleteMapping("/promocode/{id}")
+//    public Mono<ResponseEntity<Response>> deleteServiceCharge(@PathVariable("id") UUID id) {
+//        serviceChargeService.deleteServiceCharge(id);
+//        return Mono.just(ResponseEntity.ok(ServiceResponseBuilder.buildSuccessResponse(
+//                messageSource.getMessage("message.service.charge.scheme.deleted.success",
+//                        null, LocaleContextHolder.getLocale()))));
+//    }
 
 
 }
