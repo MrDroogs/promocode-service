@@ -28,7 +28,7 @@ public class AmountCountServiceImpl implements AmountCountService {
     @Override
     public void createAmountWise(AmountWiseRequest amountWiseRequest) {
         AmountWiseEntity amountWise = amountRepository.findByAmountEnum(amountWiseRequest.getAmountEnum());
-        if (amountWise != null && amountWise.getAmountEnum() != null) { // Check if amountWise and its amountEnum are not null
+        if (amountWise != null && amountWise.getAmountEnum() != null) {
             if (amountWiseRequest.getAmountEnum() == AmountEnum.FLAT) {
                 amountWise.setPromoCodeType(amountWiseRequest.getPromoCodeType());
                 amountWise.setPromoCodeValue(amountWiseRequest.getPromoCodeValue());

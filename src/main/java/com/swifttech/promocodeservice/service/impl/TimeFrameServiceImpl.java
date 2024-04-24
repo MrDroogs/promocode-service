@@ -63,33 +63,33 @@ public class TimeFrameServiceImpl implements TimeFrameService {
             timeFrame.setStartTime(null);
             timeFrame.setEndTime(null);
         }
-//
-//        timeFrameRepository.save(timeFrame);
-//        List<UUID> applicableDays = new ArrayList<>();
-//            UUID applicableDay =request.getApplicableDays();
-//            if (applicableDay != null) {
-//                applicableDays.add(applicableDay);
-//            }
-//
-//            log.info("Days REQUEST DATA {}", new Gson().toJson(applicableDays));
-//            interCommunication.getApplicableDays(applicableDays);
+
+        timeFrameRepository.save(timeFrame);
+        List<UUID> applicableDays = new ArrayList<>();
+            UUID applicableDay =request.getApplicableDays();
+            if (applicableDay != null) {
+                applicableDays.add(applicableDay);
+            }
+
+            log.info("Days REQUEST DATA {}", new Gson().toJson(applicableDays));
+            interCommunication.getApplicableDays(applicableDays);
         timeFrameRepository.save(timeFrame);
     }
-
-    @Override
-    public TimeFrameEntity updateTimeFrame(UUID id, TimeFrameRequest timeFrameRequest) {
-        TimeFrameEntity timeFrameEntity = timeFrameRepository.findById(id).orElseThrow(()
-                -> new RemitException(codes.pick("PRM001")));
-        TimeFrameMapper.Instance.toRequest(timeFrameEntity);
-        return timeFrameRepository.save(timeFrameEntity);
-    }
-
-    @Override
-    public void deleteTimeFramew(UUID id) {
-        Optional<TimeFrameEntity> timeFrameId = timeFrameRepository.findById(id);
-        if (timeFrameId.isPresent()) {
-            TimeFrameEntity timeFrame = timeFrameId.get();
-            timeFrameRepository.save(timeFrame);
-        }
-    }
+//
+//    @Override
+//    public TimeFrameEntity updateTimeFrame(UUID id, TimeFrameRequest timeFrameRequest) {
+//        TimeFrameEntity timeFrameEntity = timeFrameRepository.findById(id).orElseThrow(()
+//                -> new RemitException(codes.pick("PRM001")));
+//        TimeFrameMapper.Instance.toRequest(timeFrameEntity);
+//        return timeFrameRepository.save(timeFrameEntity);
+//    }
+//
+//    @Override
+//    public void deleteTimeFramew(UUID id) {
+//        Optional<TimeFrameEntity> timeFrameId = timeFrameRepository.findById(id);
+//        if (timeFrameId.isPresent()) {
+//            TimeFrameEntity timeFrame = timeFrameId.get();
+//            timeFrameRepository.save(timeFrame);
+//        }
+//    }
 }

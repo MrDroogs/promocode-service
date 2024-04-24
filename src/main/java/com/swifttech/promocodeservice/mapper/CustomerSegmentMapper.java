@@ -9,8 +9,5 @@ import org.mapstruct.factory.Mappers;
 public interface CustomerSegmentMapper {
     CustomerSegmentMapper Instance = Mappers.getMapper(CustomerSegmentMapper.class);
     CustomerSegmentEntity toEntity(CustomerSegmentRequest customerSegmentRequest);
-
-//    CustomerSegmentRequest toRequest(CustomerSegmentRequest request,CustomerSegmentEntity customerSegmentEntity);
-
     CustomerSegmentRequest toRequest(CustomerSegmentEntity customerSegmentEntity);
 }

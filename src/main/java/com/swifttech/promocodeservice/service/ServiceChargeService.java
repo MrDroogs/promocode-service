@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface ServiceChargeService {
    void createServiceCharge(ServiceChargeRequest serviceChargeRequest);
 
-   ServiceChargeEntity updateServiceCharge(UUID id, ServiceChargeRequest serviceChargeRequest);
-
-    void deleteServiceCharge(UUID id);
+//   ServiceChargeEntity updateServiceCharge(UUID id, ServiceChargeRequest serviceChargeRequest);
+//
+//    void deleteServiceCharge(UUID id);
 }

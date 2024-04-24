@@ -40,21 +40,21 @@ public class ServiceChargeImpl implements ServiceChargeService {
             }
         }
 
-        @Override
-    public ServiceChargeEntity updateServiceCharge(UUID id, ServiceChargeRequest serviceChargeRequest) {
-        ServiceChargeEntity serviceChargeEntity = serviceChargeRepository.findById(id).orElseThrow(()
-                -> new RemitException(codes.pick("PRM001")));
-        ServiceChargeMapper.Instance.toRequest(serviceChargeEntity);
-        return serviceChargeRepository.save(serviceChargeEntity);
-    }
-    @Override
-    public void deleteServiceCharge(UUID id) {
-        Optional<ServiceChargeEntity> serviceChargeId = serviceChargeRepository.findById(id);
-        if (serviceChargeId.isPresent()) {
-            ServiceChargeEntity serviceCharge = serviceChargeId.get();
-            serviceChargeRepository.save(serviceCharge);
-        }
-    }
+//        @Override
+//    public ServiceChargeEntity updateServiceCharge(UUID id, ServiceChargeRequest serviceChargeRequest) {
+//        ServiceChargeEntity serviceChargeEntity = serviceChargeRepository.findById(id).orElseThrow(()
+//                -> new RemitException(codes.pick("PRM001")));
+//        ServiceChargeMapper.Instance.toRequest(serviceChargeEntity);
+//        return serviceChargeRepository.save(serviceChargeEntity);
+//    }
+//    @Override
+//    public void deleteServiceCharge(UUID id) {
+//        Optional<ServiceChargeEntity> serviceChargeId = serviceChargeRepository.findById(id);
+//        if (serviceChargeId.isPresent()) {
+//            ServiceChargeEntity serviceCharge = serviceChargeId.get();
+//            serviceChargeRepository.save(serviceCharge);
+//        }
+//    }
 
 
 }

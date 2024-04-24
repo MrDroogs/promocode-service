@@ -9,7 +9,7 @@ public interface CustomerSegmentService {
 
     void createCustomerSegment(CustomerSegmentRequest customerSegmentRequest);
 
-    CustomerSegmentEntity updateCustomerSegment(UUID id, CustomerSegmentRequest customerSegmentRequest);
-
-    void deleteCustomerSegment(UUID id);
+//    CustomerSegmentEntity updateCustomerSegment(UUID id, CustomerSegmentRequest customerSegmentRequest);
+//
+//    void deleteCustomerSegment(UUID id);
 }

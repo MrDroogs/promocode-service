@@ -22,7 +22,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Slf4j
 public class CustomerSegmentServiceImpl implements CustomerSegmentService {
-    private static final Logger LOG = LoggerFactory.getLogger(BasicSetupServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PromoCodeServiceImpl.class);
     private final  CustomerRepository customerRepository;
     private final PromoCodeRepository promoCodeRepository;
     private final Codes codes;
@@ -39,22 +39,7 @@ public class CustomerSegmentServiceImpl implements CustomerSegmentService {
 
     }
 
-    @Override
-    public CustomerSegmentEntity updateCustomerSegment(UUID id, CustomerSegmentRequest customerSegmentRequest) {
-       CustomerSegmentEntity customerSegment = customerRepository.findById(id).orElseThrow(()
-               -> new RemitException(codes.pick("PRM001")));
-       CustomerSegmentMapper.Instance.toRequest(customerSegment );
-        return customerRepository.save(customerSegment);
-    }
 
-    @Override
-    public void deleteCustomerSegment(UUID id) {
-        Optional<CustomerSegmentEntity> customerSegmentId = customerRepository.findById(id);
-        if (customerSegmentId.isPresent()) {
-            CustomerSegmentEntity customerSegment = customerSegmentId.get();
-            customerRepository.save(customerSegment);
-        }
-    }
 
 }
 

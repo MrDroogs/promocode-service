@@ -18,5 +18,5 @@ import java.util.List;
 public class CountWiseEntity extends BaseAuditEntity {
     private String promoCodeType;
     private BigDecimal promoCodeValue;
-    private int TotalApplicableNumber;
+    private int totalApplicableNumber;
 }

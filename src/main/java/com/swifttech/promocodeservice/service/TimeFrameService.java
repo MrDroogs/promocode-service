@@ -12,8 +12,8 @@ public interface TimeFrameService {
 
     void createTimeFrame(TimeFrameRequest timeFrameRequest);
 
-    TimeFrameEntity updateTimeFrame(UUID id, TimeFrameRequest timeFrameRequest);
-
-
-    void  deleteTimeFramew(UUID id);
+//    TimeFrameEntity updateTimeFrame(UUID id, TimeFrameRequest timeFrameRequest);
+//
+//
+//    void  deleteTimeFramew(UUID id);
 }
