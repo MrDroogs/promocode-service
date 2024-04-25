@@ -2,9 +2,7 @@ package com.swifttech.promocodeservice.entity;
 
 import com.swifttech.promocodeservice.core.base.entity.BaseAuditEntity;
 import com.swifttech.promocodeservice.enums.Status;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -28,7 +26,16 @@ public class PromoCodeEntity extends BaseAuditEntity {
     private UUID receivingCountry;
     private UUID sendingCountry;
     private UUID receivingCurrency;
-
+    @OneToMany
+    private List<AmountWiseEntity> amountWise;
+    @OneToOne
+    private CountWiseEntity countWise;
+    @OneToOne
+    private ServiceChargeEntity serviceCharge;
+    @OneToOne
+    private TimeFrameEntity timeFrame;
+    @OneToOne
+    private CustomerSegmentEntity customerSegment;
 
 
 }
