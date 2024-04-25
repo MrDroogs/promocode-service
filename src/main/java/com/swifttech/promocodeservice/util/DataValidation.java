@@ -43,20 +43,20 @@ public class DataValidation {
         }
     }
 
-    private void validateCountriesAndCurrency(PromoCodeRequest promoCodeRequest) {
-        List<UUID> countryIds = Arrays.asList(
-                promoCodeRequest.getSendingCountry(),
-                promoCodeRequest.getReceivingCountry()
-        );
-        interCommunication.getCountry(countryIds);
-
-        ApiResponse currencyResponse = interCommunication.getCurrency(promoCodeRequest.getCurrency());
-        if (!currencyResponse.isSuccess()) {
-            throw new RemitException(codes.pick("CON002"));
-        }
+//    private void validateCountriesAndCurrency(PromoCodeRequest promoCodeRequest) {
+//        List<UUID> countryIds = Arrays.asList(
+//                promoCodeRequest.getSendingCountry(),
+//                promoCodeRequest.getReceivingCountry()
+//        );
+//        interCommunication.getCountry(countryIds);
+//
+//        ApiResponse currencyResponse = interCommunication.getCurrency(promoCodeRequest.getCurrency());
+//        if (!currencyResponse.isSuccess()) {
+//            throw new RemitException(codes.pick("CON002"));
+//        }
 
     }
-}
+
 
 
 

@@ -26,14 +26,4 @@ public class TimeFrameRequest {
     private Calendar startTime;
     @Column(columnDefinition = "TIMESTAMP")
     private Calendar endTime;
-    @OneToMany
-    private List<AmountWiseEntity> amountWise;
-    @OneToOne
-    private CountWiseEntity countWise;
-    @OneToOne
-    private ServiceChargeEntity serviceCharge;
-    @OneToOne
-    private TimeFrameEntity timeFrame;
-    @OneToOne
-    private CustomerSegmentEntity customerSegment;
 }

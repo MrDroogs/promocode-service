@@ -26,7 +26,7 @@ public class PromoCodeEntity extends BaseAuditEntity {
     private UUID receivingCountry;
     private UUID sendingCountry;
     private UUID receivingCurrency;
-    @OneToMany
+    @OneToMany()
     private List<AmountWiseEntity> amountWise;
     @OneToOne
     private CountWiseEntity countWise;
