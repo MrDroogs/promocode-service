@@ -1,12 +1,12 @@
 package com.swifttech.promocodeservice.entity;
 
 import com.swifttech.promocodeservice.core.base.entity.BaseAuditEntity;
-import com.swifttech.promocodeservice.enums.Status;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.*;
 
-import java.math.BigDecimal;
-import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 

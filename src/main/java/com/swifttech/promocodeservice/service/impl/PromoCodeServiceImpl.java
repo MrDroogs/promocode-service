@@ -127,10 +127,94 @@ public class PromoCodeServiceImpl implements PromoCodeService {
     }
 
 
+
 }
 
 
+//import com.swifttech.promocodeservice.entity.*;
+//        import com.swifttech.promocodeservice.mapper.*;
+//        import com.swifttech.promocodeservice.core.exceptions.RemitException;
+//import com.swifttech.promocodeservice.repository.PromoCodeRepository;
+//import com.swifttech.promocodeservice.model.*;
+//        import com.swifttech.promocodeservice.communication.InterCommunication;
+//import com.swifttech.promocodeservice.response.ApiResponse;
+//
+//import java.util.*;
+//        import lombok.extern.slf4j.Slf4j;
+//import java.time.LocalDate;
+//
+//@Slf4j
+//public class PromoCodeService {
+//
+//    private final PromoCodeRepository promoCodeRepository;
+//    private final InterCommunication interCommunication;
+//
+//    public PromoCodeService(PromoCodeRepository promoCodeRepository, InterCommunication interCommunication) {
+//        this.promoCodeRepository = promoCodeRepository;
+//        this.interCommunication = interCommunication;
+//    }
 
+//    public void createPromoCode(PromoCodeRequest promoCodeRequest) {
+//        // Check if a promo code with the same name already exists
+//        PromoCodeEntity existingPromoCode = promoCodeRepository.findByPromoCodeName(promoCodeRequest.getPromoCodeName());
+//        if (existingPromoCode != null) {
+//            throw new RemitException("Promo code already exists with this name");
+//        }
+//
+//        // Validate countries and currency
+//        validateCountriesAndCurrency(promoCodeRequest);
+//
+//        // Use mappers to convert requests to entities
+//        PromoCodeEntity promoCode = PromoCodeMapper.Instance.toEntity(promoCodeRequest);
+//
+//        // Time Frame entity via mapper
+//        TimeFrameRequest timeFrameRequest = promoCodeRequest.getTimeFrame();
+//        if (timeFrameRequest != null) {
+//            TimeFrameEntity timeFrame = TimeFrameMapper.Instance.toEntity(timeFrameRequest);
+//
+//            if (timeFrame.getEndDate().isBefore(timeFrame.getStartDate())) {
+//                throw new RemitException("End date cannot be before start date");
+//            }
+//
+//            promoCode.setTimeFrame(timeFrame);
+//        }
+//
+//        // Service Charge entity via mapper
+//        ServiceChargeEntity serviceCharge = ServiceChargeMapper.Instance.toEntity(promoCodeRequest.getServiceCharge());
+//        promoCode.setServiceCharge(serviceCharge);
+//
+//        // Customer Segment entity via mapper
+//        CustomerSegmentEntity customerSegment = CustomerSegmentMapper.Instance.toEntity(promoCodeRequest.getCustomerSegment());
+//        promoCode.setCustomerSegment(customerSegment);
+//
+//        // Count Wise entity via mapper
+//        CountWiseEntity countWise = CountWiseMapper.Instance.toEntity(promoCodeRequest.getCountWise());
+//        promoCode.setCountWise(countWise);
+//
+//        // Amount Wise entities via mapper
+//        List<AmountWiseEntity> amountWiseList = promoCodeRequest.getAmountWise().stream()
+//                .map(AmountWiseMapper.Instance::toEntity)
+//                .collect(Collectors.toList());
+//        promoCode.setAmountWise(amountWiseList);
+//
+//        // Save the promo code entity
+//        promoCodeRepository.save(promoCode);
+//    }
+//
+//    private void validateCountriesAndCurrency(PromoCodeRequest promoCodeRequest) {
+//        List<UUID> countryIds = Arrays.asList(
+//                promoCodeRequest.getSendingCountry(),
+//                promoCodeRequest.getReceivingCountry()
+//        );
+//        interCommunication.getCountry(countryIds);
+//
+//        ApiResponse currencyResponse = interCommunication.getCurrency(promoCodeRequest.getCurrency());
+//        if (!currencyResponse.isSuccess()) {
+//            throw new RemitException("Invalid currency");
+//        }
+//    }
+//}
+//
 
 
 
